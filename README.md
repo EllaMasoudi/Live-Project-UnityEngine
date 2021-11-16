@@ -2,7 +2,7 @@
 
 In two weeks internship I redesigned an arcade game in Unity using C#. There are some code snippet from my game in this repository 
 
-#Player Controller Script
+# Player Controller Script
 In this script for 
 
         void Start()
