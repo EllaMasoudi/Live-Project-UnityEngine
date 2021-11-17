@@ -3,7 +3,7 @@
 In two weeks internship I redesigned an arcade game in Unity using C#. There are some code snippet from my game in this repository 
 
 # Player Controller Script
-In this script  
+This script shows the score on the canvas. The player movement defined here. Also if the player collides with Rock and an enemy in the game will destroy.
 
         void Start()
         {
@@ -83,3 +83,44 @@ In this script
     }
 
     }
+    
+ #Script for the Rock 
+ In this script , if the player destroys the ground(rock support) under the rock then the rock will fall down. If the rock collides with the player will destroy the player. 
+ 
+    void Start()
+    {
+        GetComponent<PolygonCollider2D>().enabled = false;
+    }
+
+    void Update()
+    {
+        GetComponent<PolygonCollider2D>().enabled = true;
+
+        if (GameFlow.supportGone == "y")
+        {
+            StartCoroutine(dropRock());
+            GameFlow.supportGone = "n";
+        }
+    }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.name == "BottomBorder")
+        {
+            
+            Destroy(gameObject);
+        }
+        else if (other.name == "Player")
+        {
+            Debug.Log("score reduced!!");
+            
+        }
+    }
+
+    IEnumerator dropRock()
+    {
+        
+        yield return new WaitForSeconds (3);
+        GetComponent<Rigidbody2D>().gravityScale = 1;
+    }
+
+}
