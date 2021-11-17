@@ -84,7 +84,7 @@ This script shows the score on the canvas. The player movement defined here. Als
 
     }
     
- #Script for the Rock 
+ # Script for the Rock 
  In this script , if the player destroys the ground(rock support) under the rock then the rock will fall down. If the rock collides with the player will destroy the player. 
  
     void Start()
